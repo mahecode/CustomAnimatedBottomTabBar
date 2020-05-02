@@ -10,7 +10,7 @@ const Profile = () => {
         alignItems: 'center',
         backgroundColor: '#fff',
       }}>
-      <Text style={{fontSize: 24, fontWeight: 'bold'}}>Profile Screen</Text>
+      <Text style={{fontSize: 24, fontWeight: 'bold'}}>Jobs Screen</Text>
     </View>
   );
 };

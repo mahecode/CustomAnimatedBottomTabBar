@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const Community = () => {
+const Notification = () => {
   return (
     <View
       style={{
@@ -10,9 +10,11 @@ const Community = () => {
         alignItems: 'center',
         backgroundColor: '#fff',
       }}>
-      <Text style={{fontSize: 24, fontWeight: 'bold'}}>My Network Screen</Text>
+      <Text style={{fontSize: 24, fontWeight: 'bold'}}>
+        Notification Screen
+      </Text>
     </View>
   );
 };
 
-export default Community;
+export default Notification;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const Trending = () => {
+const AddPost = () => {
   return (
     <View
       style={{
@@ -10,9 +10,9 @@ const Trending = () => {
         alignItems: 'center',
         backgroundColor: '#fff',
       }}>
-      <Text style={{fontSize: 24, fontWeight: 'bold'}}>Cart Screen</Text>
+      <Text style={{fontSize: 24, fontWeight: 'bold'}}>Add Post Screen</Text>
     </View>
   );
 };
 
-export default Trending;
+export default AddPost;

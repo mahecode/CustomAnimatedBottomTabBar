@@ -8,14 +8,15 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import Bump from './icons/Bump';
-import UserIcon from './icons/UserIcon';
-import HomeIcon from './icons/Home';
-import OfferIcon from './icons/OfferIcon';
-import BagIcon from './icons/BagIcon';
+import HomeNew from './icons/HomeNew';
+import Users from './icons/Users';
+import Plus from './icons/Plus';
+import Bag from './icons/Bag';
+import Bell from './icons/Bell';
 
 const BottomTab = (props) => {
   const {width} = useWindowDimensions();
-  const bump = React.useRef(new Animated.Value(-30)).current;
+  const bump = React.useRef(new Animated.Value(-42)).current;
 
   const tabs = {
     0: {
@@ -31,6 +32,10 @@ const BottomTab = (props) => {
       scaleIcon: React.useRef(new Animated.Value(1)).current,
     },
     3: {
+      paddingBottom: React.useRef(new Animated.Value(0)).current,
+      scaleIcon: React.useRef(new Animated.Value(1)).current,
+    },
+    4: {
       paddingBottom: React.useRef(new Animated.Value(0)).current,
       scaleIcon: React.useRef(new Animated.Value(1)).current,
     },
@@ -86,6 +91,16 @@ const BottomTab = (props) => {
         duration: 500,
         useNativeDriver: true,
       }),
+      Animated.timing(tabs[filterArr[3]].paddingBottom, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }),
+      Animated.timing(tabs[filterArr[3]].scaleIcon, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }),
     ]).start();
   };
 
@@ -109,7 +124,7 @@ const BottomTab = (props) => {
           <TouchableNativeFeedback
             style={{borderRadius: 20}}
             background={TouchableNativeFeedback.Ripple('#fff', true)}
-            onPress={() => handleTab(-30, 0, 'Home')}>
+            onPress={() => handleTab(-42, 0, 'Home')}>
             <Animated.View
               style={{
                 ...styles.iconStyle,
@@ -118,13 +133,13 @@ const BottomTab = (props) => {
                   {scale: tabs[0].scaleIcon},
                 ],
               }}>
-              <HomeIcon color="#fff" />
+              <HomeNew />
             </Animated.View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback
             style={{borderRadius: 20}}
             background={TouchableNativeFeedback.Ripple('#fff', true)}
-            onPress={() => handleTab(60, 1, 'Community')}>
+            onPress={() => handleTab(32, 1, 'Community')}>
             <Animated.View
               style={{
                 ...styles.iconStyle,
@@ -133,13 +148,13 @@ const BottomTab = (props) => {
                   {scale: tabs[1].scaleIcon},
                 ],
               }}>
-              <OfferIcon color="#fff" />
+              <Users color="#fff" />
             </Animated.View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback
             style={{borderRadius: 20}}
             background={TouchableNativeFeedback.Ripple('#fff', true)}
-            onPress={() => handleTab(150, 2, 'Trending')}>
+            onPress={() => handleTab(100, 2, 'AddPost')}>
             <Animated.View
               style={{
                 ...styles.iconStyle,
@@ -148,13 +163,13 @@ const BottomTab = (props) => {
                   {scale: tabs[2].scaleIcon},
                 ],
               }}>
-              <BagIcon color="#fff" />
+              <Plus color="#fff" />
             </Animated.View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback
             style={{borderRadius: 20}}
             background={TouchableNativeFeedback.Ripple('#fff', true)}
-            onPress={() => handleTab(240, 3, 'Profile')}>
+            onPress={() => handleTab(173, 3, 'Trending')}>
             <Animated.View
               style={{
                 ...styles.iconStyle,
@@ -163,7 +178,22 @@ const BottomTab = (props) => {
                   {scale: tabs[3].scaleIcon},
                 ],
               }}>
-              <UserIcon filColor="#fff" />
+              <Bell color="#fff" />
+            </Animated.View>
+          </TouchableNativeFeedback>
+          <TouchableNativeFeedback
+            style={{borderRadius: 20}}
+            background={TouchableNativeFeedback.Ripple('#fff', true)}
+            onPress={() => handleTab(245, 4, 'Profile')}>
+            <Animated.View
+              style={{
+                ...styles.iconStyle,
+                transform: [
+                  {translateY: tabs[4].paddingBottom},
+                  {scale: tabs[4].scaleIcon},
+                ],
+              }}>
+              <Bag filColor="#fff" />
             </Animated.View>
           </TouchableNativeFeedback>
         </View>
@@ -182,7 +212,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     height: 50,
-    backgroundColor: '#F86967',
+    backgroundColor: '#0277B6',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
